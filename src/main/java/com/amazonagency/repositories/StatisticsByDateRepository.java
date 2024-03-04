@@ -13,6 +13,8 @@ public interface StatisticsByDateRepository extends MongoRepository<SalesAndTraf
 
     Optional<SalesAndTrafficByDate> findByDate(String date);
 
+//    void upsert(List<SalesAndTrafficByDate> statisticsByDate);
+
     @Query("""
             {
              $and : [ 
