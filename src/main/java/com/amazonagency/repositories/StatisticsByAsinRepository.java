@@ -6,11 +6,12 @@ import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface StatisticsByAsinRepository extends MongoRepository<SalesAndTrafficByAsin, String> {
 
-    SalesAndTrafficByAsin findByParentAsin(String asin);
+    Optional<SalesAndTrafficByAsin> findByParentAsin(String asin);
 
     @Query("""
            {
@@ -19,5 +20,5 @@ public interface StatisticsByAsinRepository extends MongoRepository<SalesAndTraf
                }
            }
             """)
-    List<SalesAndTrafficByAsin> findByParentAsinList(String[] asins);
+    Optional<List<SalesAndTrafficByAsin>> findByParentAsinList(String[] asins);
 }

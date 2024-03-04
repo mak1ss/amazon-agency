@@ -17,17 +17,17 @@ public class SalesByDateController {
     private StatisticsByDateService service;
 
     @GetMapping("/all")
-    public List<SalesAndTrafficByDate> getAll(){
+    public List<SalesAndTrafficByDate> getAll() {
         return service.getAll();
     }
 
     @GetMapping
-    public SalesAndTrafficByDate getByDate(@RequestParam String date){
+    public SalesAndTrafficByDate getByDate(@RequestParam String date) {
         return service.getByDate(date);
     }
 
     @GetMapping("/in-range")
-    public List<SalesAndTrafficByDate> getByDateRange(@RequestParam String fromDate, String dateTo){
+    public List<SalesAndTrafficByDate> getByDateRange(@RequestParam String fromDate, String dateTo) {
         return service.getByInterval(fromDate, dateTo);
     }
 

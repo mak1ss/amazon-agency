@@ -6,11 +6,12 @@ import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface StatisticsByDateRepository extends MongoRepository<SalesAndTrafficByDate, String> {
 
-    SalesAndTrafficByDate findByDate(String date);
+    Optional<SalesAndTrafficByDate> findByDate(String date);
 
     @Query("""
             {
@@ -20,5 +21,5 @@ public interface StatisticsByDateRepository extends MongoRepository<SalesAndTraf
                   ]
             }
              """)
-    List<SalesAndTrafficByDate> findByDateRange(String dateFrom, String dateTo);
+    Optional<List<SalesAndTrafficByDate>> findByDateRange(String dateFrom, String dateTo);
 }
