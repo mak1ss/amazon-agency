@@ -13,8 +13,6 @@ public interface StatisticsByAsinRepository extends MongoRepository<SalesAndTraf
 
     Optional<SalesAndTrafficByAsin> findByParentAsin(String asin);
 
-//    void upsert(List<SalesAndTrafficByAsin> statisticsByAsin);
-
     @Query("""
            {
                parentAsin : {
